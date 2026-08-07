@@ -1,10 +1,60 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Products — Robbito Footwear &amp; Uniform Solutions</title>
 <link rel="stylesheet" href="style.css">
+<style>
+  /* Product Cards with Background Images and Hover Effects */
+  .product-img-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+    border: 1px solid var(--panel-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .product-img-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(7,7,9,0.95) 10%, rgba(7,7,9,0.3) 100%);
+    transition: 0.4s;
+  }
+  .product-img-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 15px 35px rgba(239, 68, 68, 0.3);
+  }
+  .product-img-card:hover::before {
+    background: linear-gradient(to top, rgba(7,7,9,0.9) 20%, rgba(7,7,9,0.2) 100%);
+  }
+  .product-content {
+    position: relative;
+    z-index: 2;
+  }
+  .product-content h4 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 6px;
+    font-weight: 700;
+    transition: 0.2s;
+  }
+  .product-img-card:hover .product-content h4 {
+    color: var(--accent);
+  }
+  .product-content span {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+</style>
 </head>
 <body>
 
@@ -42,12 +92,55 @@
 <section class="section-tight">
   <div class="container">
     <div class="work-grid">
-      <div class="work-card"><div class="work-meta"><h4>School Shoes</h4><span>Durable &amp; Comfortable Daily Wear</span></div></div>
-      <div class="work-card"><div class="work-meta"><h4>College Shoes</h4><span>Formal Leather Standards</span></div></div>
-      <div class="work-card"><div class="work-meta"><h4>Safety Shoes</h4><span>Industrial Steel Toe Protection</span></div></div>
-      <div class="work-card"><div class="work-meta"><h4>School Uniforms</h4><span>Neat Fabrics &amp; Custom Tailoring</span></div></div>
-      <div class="work-card"><div class="work-meta"><h4>College Uniforms</h4><span>Professional Institutional Attire</span></div></div>
-      <div class="work-card"><div class="work-meta"><h4>Factory Uniforms</h4><span>Heavy-Duty Industrial Workwear</span></div></div>
+      
+      <!-- School Shoes -->
+      <div class="product-img-card" style="background-image: url('school-shoes.jpg');">
+        <div class="product-content">
+          <h4>School Shoes</h4>
+          <span>Durable &amp; Comfortable Daily Wear</span>
+        </div>
+      </div>
+
+      <!-- College Shoes -->
+      <div class="product-img-card" style="background-image: url('college-shoes.jpg');">
+        <div class="product-content">
+          <h4>College Shoes</h4>
+          <span>Formal Leather Standards</span>
+        </div>
+      </div>
+
+      <!-- Safety Shoes -->
+      <div class="product-img-card" style="background-image: url('safety-shoes.jpg');">
+        <div class="product-content">
+          <h4>Safety Shoes</h4>
+          <span>Industrial Steel Toe Protection</span>
+        </div>
+      </div>
+
+      <!-- School Uniforms -->
+      <div class="product-img-card" style="background-image: url('school-uniforms.jpg');">
+        <div class="product-content">
+          <h4>School Uniforms</h4>
+          <span>Neat Fabrics &amp; Custom Tailoring</span>
+        </div>
+      </div>
+
+      <!-- College Uniforms -->
+      <div class="product-img-card" style="background-image: url('college-uniforms.jpg');">
+        <div class="product-content">
+          <h4>College Uniforms</h4>
+          <span>Professional Institutional Attire</span>
+        </div>
+      </div>
+
+      <!-- Factory Uniforms -->
+      <div class="product-img-card" style="background-image: url('factory-uniforms.jpg');">
+        <div class="product-content">
+          <h4>Factory Uniforms</h4>
+          <span>Heavy-Duty Industrial Workwear</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
