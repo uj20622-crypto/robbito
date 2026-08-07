@@ -5,6 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Robbito — Premium Footwear &amp; Uniform Solutions</title>
 <link rel="stylesheet" href="style.css">
+<style>
+  /* Product Cards Link Styling */
+  .work-card-link {
+    background: var(--panel); border: 1px solid var(--panel-border); border-radius: 16px; padding: 35px 30px; 
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); display: block; min-height: 190px; 
+    display: flex; flex-direction: column; justify-content: flex-end; text-decoration: none;
+  }
+  .work-card-link:hover { 
+    transform: translateY(-8px); 
+    border-color: var(--accent); 
+    box-shadow: 0 12px 35px rgba(239, 68, 68, 0.25); 
+  }
+  .work-card-link h4 { font-size: 19px; margin-bottom: 6px; color: #fff; font-weight: 700; transition: 0.2s; }
+  .work-card-link:hover h4 { color: var(--accent); }
+  .work-card-link span { font-size: 13px; color: var(--text-muted); }
+</style>
 </head>
 <body>
 
@@ -51,12 +67,12 @@
     <div class="eyebrow">Our Catalog</div>
     <h2 style="font-size: 34px; font-weight: 800; margin-bottom: 30px;">Engineered for comfort.<br>Built for daily use.</h2>
     <div class="work-grid">
-      <a href="products.html" class="work-card"><div class="work-meta"><h4>School Shoes</h4><span>Durable &amp; Comfortable</span></div></a>
-      <a href="products.html" class="work-card"><div class="work-meta"><h4>College Shoes</h4><span>Formal &amp; Elegant</span></div></a>
-      <a href="products.html" class="work-card"><div class="work-meta"><h4>Factory Safety Shoes</h4><span>Heavy-Duty Protection</span></div></a>
-      <a href="products.html" class="work-card"><div class="work-meta"><h4>School Uniforms</h4><span>Neat &amp; Breathable Fabrics</span></div></a>
-      <a href="products.html" class="work-card"><div class="work-meta"><h4>College Uniforms</h4><span>Institution Standards</span></div></a>
-      <a href="products.html" class="work-card"><div class="work-meta"><h4>Factory Uniforms</h4><span>Industrial Workwear</span></div></a>
+      <a href="products.html#school-shoes" class="work-card-link"><div class="work-meta"><h4>School Shoes</h4><span>Durable &amp; Comfortable</span></div></a>
+      <a href="products.html#college-shoes" class="work-card-link"><div class="work-meta"><h4>College Shoes</h4><span>Formal &amp; Elegant</span></div></a>
+      <a href="products.html#safety-shoes" class="work-card-link"><div class="work-meta"><h4>Factory Safety Shoes</h4><span>Heavy-Duty Protection</span></div></a>
+      <a href="products.html#school-uniforms" class="work-card-link"><div class="work-meta"><h4>School Uniforms</h4><span>Neat &amp; Breathable Fabrics</span></div></a>
+      <a href="products.html#college-uniforms" class="work-card-link"><div class="work-meta"><h4>College Uniforms</h4><span>Institution Standards</span></div></a>
+      <a href="products.html#factory-uniforms" class="work-card-link"><div class="work-meta"><h4>Factory Uniforms</h4><span>Industrial Workwear</span></div></a>
     </div>
   </div>
 </section>
@@ -107,7 +123,6 @@
 </footer>
 
 <script>
-  // Cursor glow follow script
   const glow = document.querySelector('.cursor-glow');
   window.addEventListener('mousemove', e => {
     glow.style.left = e.clientX + 'px';
