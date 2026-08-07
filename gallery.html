@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robbito | Gallery</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robbito — Gallery</title>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
-        <nav class="nav">
-            <a href="index.html"><img src="Robbito logo .png" alt="Robbito Logo" style="height: 50px; width: auto;"></a>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <a class="btn" href="contact.html">Get Quote</a>
-        </nav>
-    </header>
-    
-<main class="container">
-    <h2>Gallery</h2>
-    <div class="grid">
-        <div class="product-item">Product Showcase 1</div>
-        <div class="product-item">Product Showcase 2</div>
-        <div class="product-item">Product Showcase 3</div>
-    </div>
+
+<header class="nav" style="background:#fff; padding:15px 5%; box-shadow:0 2px 5px rgba(0,0,0,0.05); display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100;">
+  <a href="index.html" class="brand" style="text-decoration:none; font-weight:bold; font-size:22px; color:#111;">
+    <img src="Robbito logo .png" alt="Robbito Logo" style="height: 40px; width: auto; vertical-align:middle;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+    <span style="display:none;">ROBBITO</span>
+  </a>
+  <nav style="display:flex; gap:20px; align-items:center;">
+    <a href="index.html" style="text-decoration:none; color:#333;">Home</a>
+    <a href="about.html" style="text-decoration:none; color:#333;">About</a>
+    <a href="products.html" style="text-decoration:none; color:#333;">Products</a>
+    <a href="gallery.html" style="text-decoration:none; color:#0056b3; font-weight:600;">Gallery</a>
+    <a href="contact.html" style="text-decoration:none; color:#333;">Contact</a>
+    <a href="contact.html" style="background:#0056b3; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none; font-size:14px;">Get Quote</a>
+  </nav>
+</header>
+
+<section style="background:#111; color:#fff; padding:60px 5%; text-align:center;">
+  <h1 style="font-size:36px;">Showcase Gallery</h1>
+</section>
+
+<main style="padding:60px 5%; max-width:1200px; margin:0 auto;">
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:25px;">
+    <div style="background:#e5e7eb; height:240px; display:flex; align-items:center; justify-content:center; border-radius:8px; color:#555; font-weight:600;">Gallery Item 1</div>
+    <div style="background:#e5e7eb; height:240px; display:flex; align-items:center; justify-content:center; border-radius:8px; color:#555; font-weight:600;">Gallery Item 2</div>
+    <div style="background:#e5e7eb; height:240px; display:flex; align-items:center; justify-content:center; border-radius:8px; color:#555; font-weight:600;">Gallery Item 3</div>
+  </div>
 </main>
 
-    <footer>
-        <p>&copy; 2026 Robbito. All rights reserved.</p>
-        <p>Contact: 03167272598 | Email: bjtextlie@gmail.com</p>
-    </footer>
+<footer style="background:#111; color:#fff; padding:40px 5%; text-align:center; margin-top:60px;">
+  <p>© 2026 Robbito. All rights reserved.</p>
+  <p style="margin-top:10px; color:#aaa; font-size:14px;">Contact: 03167272598 | Email: bjtextlie@gmail.com | Location: Okara, Punjab, Pakistan</p>
+</footer>
+
 </body>
 </html>
