@@ -8,11 +8,16 @@
 </head>
 <body>
 
+<div class="preloader">
+  <div class="preloader-logo">ROBBITO</div>
+</div>
+<div class="cursor-glow" aria-hidden="true"></div>
+
 <header class="nav">
   <div class="container nav-inner">
     <a href="index.html" class="brand">
-      <img src="Robbito logo .png" alt="Robbito Logo" style="height: 40px; width: auto; vertical-align:middle;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-      <span style="display:none;">ROBBITO</span>
+      <img src="Robbito logo .png" alt="Robbito Logo" class="brand-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+      <span style="display:none; color:#fff;">ROBBITO</span>
     </a>
     <nav class="nav-links">
       <a href="index.html">Home</a>
@@ -52,8 +57,8 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a href="index.html" class="brand">
-          <img src="Robbito logo .png" alt="Robbito Logo" style="height: 35px; width: auto; vertical-align:middle;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-          <span style="display:none;">ROBBITO</span>
+          <img src="Robbito logo .png" alt="Robbito Logo" class="brand-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+          <span style="display:none; color:#fff;">ROBBITO</span>
         </a>
         <p>Premium footwear and uniform solutions supplying schools, colleges, and factories with excellence and unmatched durability.</p>
       </div>
@@ -92,5 +97,12 @@
   </div>
 </footer>
 
+<script>
+  const glow = document.querySelector('.cursor-glow');
+  window.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+</script>
 </body>
 </html>
