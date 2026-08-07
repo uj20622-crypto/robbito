@@ -118,3 +118,11 @@ a { text-decoration: none; color: inherit; transition: 0.2s; }
   .display-1 { font-size: 38px; }
   .nav-links { display: none; }
 }
+/* New Features Styles */
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+.feature-card { background: var(--panel); padding: 40px; border-radius: 16px; border: 1px solid var(--panel-border); text-align: center; }
+.feature-card h3 { color: #fff; margin-bottom: 15px; }
+.feature-card p { color: var(--text-muted); font-size: 14px; }
+.contact-form-card { background: var(--panel); padding: 40px; border-radius: 16px; border: 1px solid var(--panel-border); }
+.form-group { margin-bottom: 20px; }
+.form-control { width: 100%; padding: 12px; background: #070709; border: 1px solid var(--panel-border); border-radius: 8px; color: #fff; }
