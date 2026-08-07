@@ -199,19 +199,22 @@ a { text-decoration: none; color: inherit; transition: 0.2s; }
 }
 
 .preloader.hidden { display: none !important; }
-/* Screen Center Cinematic Preloader */
+/* Perfect Full-Screen Center Cinematic Preloader */
 .preloader {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #070709;
-  z-index: 99999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  background: #070709 !important;
+  z-index: 999999 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
   animation: hideContainer 0.5s ease 3.8s forwards;
 }
 
