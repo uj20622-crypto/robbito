@@ -1,60 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Robbito — Premium Footwear & Uniform Solutions</title>
-<meta name="description" content="Robbito supplies quality school shoes, college shoes, factory safety shoes and uniforms.">
-<link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <title>Robbito | Premium Footwear & Uniform Solutions</title>
+    <!-- CSS Files (Yeh files aapke folder mein honi chahiye) -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
 
-<header class="nav" style="background:#fff; padding:15px 5%; box-shadow:0 2px 5px rgba(0,0,0,0.05); display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100;">
-  <a href="index.html" class="brand" style="text-decoration:none; font-weight:bold; font-size:22px; color:#111;">
-    <img src="Robbito logo .png" alt="Robbito Logo" style="height: 40px; width: auto; vertical-align:middle;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
-    <span style="display:none;">ROBBITO</span>
-  </a>
-  <nav style="display:flex; gap:20px; align-items:center;">
-    <a href="index.html" style="text-decoration:none; color:#0056b3; font-weight:600;">Home</a>
-    <a href="about.html" style="text-decoration:none; color:#333;">About</a>
-    <a href="products.html" style="text-decoration:none; color:#333;">Products</a>
-    <a href="gallery.html" style="text-decoration:none; color:#333;">Gallery</a>
-    <a href="contact.html" style="text-decoration:none; color:#333;">Contact</a>
-    <a href="contact.html" style="background:#0056b3; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none; font-size:14px;">Get Quote</a>
-  </nav>
+<!-- Preloader -->
+<div class="preloader"><div class="preloader-mark">ROBBITO<div class="preloader-bar"></div></div></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<!-- Navigation -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+        <img src="Robbito logo .png" style="height:40px;" alt="Logo">
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<section style="background:#111; color:#fff; padding:80px 5%; text-align:center;">
-  <div style="max-width:800px; margin:0 auto;">
-    <h1 style="font-size:42px; margin-bottom:20px; line-height:1.2;">Premium Footwear &amp; Uniform Solutions</h1>
-    <p style="font-size:18px; color:#aaa; margin-bottom:30px;">Supplying quality school shoes, college shoes, factory safety shoes and durable uniforms with unmatched excellence.</p>
-    <a href="products.html" style="background:#0056b3; color:#fff; padding:12px 24px; border-radius:4px; text-decoration:none; font-weight:bold;">Explore Products</a>
+<!-- Hero Section -->
+<section class="hero section">
+  <div class="container">
+    <h1 class="display-1">Premium Footwear & <span class="grad-text">Uniform Solutions</span></h1>
+    <p>Robbito supplies quality school, college, and factory uniforms with excellence.</p>
+    <a href="contact.html" class="btn btn-primary">Get Quote</a>
   </div>
 </section>
 
-<main style="padding:60px 5%; max-width:1200px; margin:0 auto;">
-  <section style="background:#fff; padding:40px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.05); margin-bottom:40px;">
-    <h2 style="font-size:28px; margin-bottom:15px; color:#111;">About Robbito</h2>
-    <p style="color:#555; font-size:16px; line-height:1.6;">Robbito supplies quality footwear and uniforms for schools, colleges, factories and organizations[cite: 6]. We ensure top-grade materials, perfect stitching, and long-lasting comfort across all our product ranges.</p>
-  </section>
-
-  <section>
-    <h2 style="font-size:28px; margin-bottom:20px; color:#111;">Core Categories</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
-      <div style="background:#fff; padding:30px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.05); text-align:center; font-weight:bold; font-size:18px;">School Shoes</div>
-      <div style="background:#fff; padding:30px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.05); text-align:center; font-weight:bold; font-size:18px;">College Shoes</div>
-      <div style="background:#fff; padding:30px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.05); text-align:center; font-weight:bold; font-size:18px;">Safety Shoes</div>
-      <div style="background:#fff; padding:30px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.05); text-align:center; font-weight:bold; font-size:18px;">School Uniforms</div>
-      <div style="background:#fff; padding:30px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.05); text-align:center; font-weight:bold; font-size:18px;">College Uniforms</div>
-      <div style="background:#fff; padding:30px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.05); text-align:center; font-weight:bold; font-size:18px;">Factory Uniforms</div>
-    </div>
-  </section>
-</main>
-
-<footer style="background:#111; color:#fff; padding:40px 5%; text-align:center; margin-top:60px;">
-  <p>© 2026 Robbito. All rights reserved.</p>
-  <p style="margin-top:10px; color:#aaa; font-size:14px;">Contact: 03167272598 | Email: bjtextlie@gmail.com | Location: Okara, Punjab, Pakistan</p>
-</footer>
-
+<!-- Scripts -->
+<script src="js/main.js"></script>
 </body>
 </html>
