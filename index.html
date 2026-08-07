@@ -7,20 +7,30 @@
 <link rel="icon" type="image/png" href="Robbito logo .png">
 <link rel="stylesheet" href="style.css">
 <style>
-  /* Product Cards Link Styling */
+  /* Product Cards Link & Video/Image Styling */
   .work-card-link {
-    background: var(--panel); border: 1px solid var(--panel-border); border-radius: 16px; padding: 35px 30px; 
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); display: block; min-height: 190px; 
+    background: var(--panel); border: 1px solid var(--panel-border); border-radius: 16px; 
+    overflow: hidden; position: relative; min-height: 240px; 
     display: flex; flex-direction: column; justify-content: flex-end; text-decoration: none;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .work-card-link:hover { 
     transform: translateY(-8px); 
     border-color: var(--accent); 
     box-shadow: 0 12px 35px rgba(239, 68, 68, 0.25); 
   }
-  .work-card-link h4 { font-size: 19px; margin-bottom: 6px; color: #fff; font-weight: 700; transition: 0.2s; }
+  .work-card-link h4 { font-size: 19px; margin-bottom: 4px; color: #fff; font-weight: 700; transition: 0.2s; }
   .work-card-link:hover h4 { color: var(--accent); }
   .work-card-link span { font-size: 13px; color: var(--text-muted); }
+  
+  /* WhatsApp Floating Button */
+  .whatsapp-float {
+    position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: #fff;
+    width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-size: 30px; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 999; transition: all 0.3s ease;
+  }
+  .whatsapp-float:hover { transform: scale(1.1); background-color: #20ba5a; }
 </style>
 </head>
 <body>
@@ -63,17 +73,79 @@
   </div>
 </section>
 
+<!-- Our Catalog Section with Videos and Images -->
 <section class="section">
   <div class="container">
     <div class="eyebrow">Our Catalog</div>
     <h2 style="font-size: 34px; font-weight: 800; margin-bottom: 30px;">Engineered for comfort.<br>Built for daily use.</h2>
     <div class="work-grid">
-      <a href="products.html#school-shoes" class="work-card-link"><div class="work-meta"><h4>School Shoes</h4><span>Durable &amp; Comfortable</span></div></a>
-      <a href="products.html#college-shoes" class="work-card-link"><div class="work-meta"><h4>College Shoes</h4><span>Formal &amp; Elegant</span></div></a>
-      <a href="products.html#safety-shoes" class="work-card-link"><div class="work-meta"><h4>Factory Safety Shoes</h4><span>Heavy-Duty Protection</span></div></a>
-      <a href="products.html#school-uniforms" class="work-card-link"><div class="work-meta"><h4>School Uniforms</h4><span>Neat &amp; Breathable Fabrics</span></div></a>
-      <a href="products.html#college-uniforms" class="work-card-link"><div class="work-meta"><h4>College Uniforms</h4><span>Institution Standards</span></div></a>
-      <a href="products.html#factory-uniforms" class="work-card-link"><div class="work-meta"><h4>Factory Uniforms</h4><span>Industrial Workwear</span></div></a>
+      
+      <!-- Card 1: School Shoes (Video) -->
+      <a href="products.html#school-shoes" class="work-card-link">
+        <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+          <source src="1. School Shoes.mp4" type="video/mp4">
+        </video>
+        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,7,9,0.95) 20%, rgba(7,7,9,0.3) 100%); z-index: 2;"></div>
+        <div class="work-meta" style="position: relative; z-index: 3; padding: 35px 30px;">
+          <h4>School Shoes</h4>
+          <span>Durable &amp; Comfortable</span>
+        </div>
+      </a>
+
+      <!-- Card 2: College Shoes (Video) -->
+      <a href="products.html#college-shoes" class="work-card-link">
+        <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+          <source src="2. College Shoes.mp4" type="video/mp4">
+        </video>
+        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,7,9,0.95) 20%, rgba(7,7,9,0.3) 100%); z-index: 2;"></div>
+        <div class="work-meta" style="position: relative; z-index: 3; padding: 35px 30px;">
+          <h4>College Shoes</h4>
+          <span>Formal &amp; Elegant</span>
+        </div>
+      </a>
+
+      <!-- Card 3: Factory Safety Shoes (Video) -->
+      <a href="products.html#safety-shoes" class="work-card-link">
+        <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+          <source src="3. Factory Safety Shoes.mp4" type="video/mp4">
+        </video>
+        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,7,9,0.95) 20%, rgba(7,7,9,0.3) 100%); z-index: 2;"></div>
+        <div class="work-meta" style="position: relative; z-index: 3; padding: 35px 30px;">
+          <h4>Factory Safety Shoes</h4>
+          <span>Heavy-Duty Protection</span>
+        </div>
+      </a>
+
+      <!-- Card 4: School Uniforms (Video) -->
+      <a href="products.html#school-uniforms" class="work-card-link">
+        <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+          <source src="4. School Uniforms.mp4" type="video/mp4">
+        </video>
+        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,7,9,0.95) 20%, rgba(7,7,9,0.3) 100%); z-index: 2;"></div>
+        <div class="work-meta" style="position: relative; z-index: 3; padding: 35px 30px;">
+          <h4>School Uniforms</h4>
+          <span>Neat &amp; Breathable Fabrics</span>
+        </div>
+      </a>
+
+      <!-- Card 5: College Uniforms (Image) -->
+      <a href="products.html#college-uniforms" class="work-card-link" style="background-image: url('College Uniforms.jpg'); background-size: cover; background-position: center;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,7,9,0.95) 20%, rgba(7,7,9,0.3) 100%); z-index: 1;"></div>
+        <div class="work-meta" style="position: relative; z-index: 2; padding: 35px 30px;">
+          <h4>College Uniforms</h4>
+          <span>Institution Standards</span>
+        </div>
+      </a>
+
+      <!-- Card 6: Factory Uniforms (Image) -->
+      <a href="products.html#factory-uniforms" class="work-card-link" style="background-image: url('6. Factory Uniforms.png'); background-size: cover; background-position: center;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,7,9,0.95) 20%, rgba(7,7,9,0.3) 100%); z-index: 1;"></div>
+        <div class="work-meta" style="position: relative; z-index: 2; padding: 35px 30px;">
+          <h4>Factory Uniforms</h4>
+          <span>Industrial Workwear</span>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
@@ -83,19 +155,19 @@
   <div class="container">
     <div class="eyebrow">Client Feedback</div>
     <h2 style="font-size: 34px; font-weight: 800; margin-bottom: 20px;">Trusted by institutions.<br>Praised for quality.</h2>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <p>"Robbito supplied our school with custom uniforms and shoes for over 500 students. The quality and durability exceeded our expectations, and delivery was right on time!"</p>
+    <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 40px;">
+      <div class="testimonial-card" style="background: var(--panel); padding: 35px; border-radius: 16px; border: 1px solid var(--panel-border);">
+        <p style="color: var(--text); font-style: italic; margin-bottom: 20px; line-height: 1.7;">"Robbito supplied our school with custom uniforms and shoes for over 500 students. The quality and durability exceeded our expectations, and delivery was right on time!"</p>
         <div class="testimonial-author">
-          <h5>Principal</h5>
-          <span>Private School Network, Punjab</span>
+          <h5 style="color: #fff; font-size: 16px; font-weight: 700;">Principal</h5>
+          <span style="color: var(--text-muted); font-size: 13px;">Private School Network, Punjab</span>
         </div>
       </div>
-      <div class="testimonial-card">
-        <p>"We ordered heavy-duty industrial safety boots and factory workwear for our staff. Exceptional stitching and rugged material built for daily factory use."</p>
+      <div class="testimonial-card" style="background: var(--panel); padding: 35px; border-radius: 16px; border: 1px solid var(--panel-border);">
+        <p style="color: var(--text); font-style: italic; margin-bottom: 20px; line-height: 1.7;">"We ordered heavy-duty industrial safety boots and factory workwear for our staff. Exceptional stitching and rugged material built for daily factory use."</p>
         <div class="testimonial-author">
-          <h5>Operations Manager</h5>
-          <span>Manufacturing Unit, Okara</span>
+          <h5 style="color: #fff; font-size: 16px; font-weight: 700;">Operations Manager</h5>
+          <span style="color: var(--text-muted); font-size: 13px;">Manufacturing Unit, Okara</span>
         </div>
       </div>
     </div>
