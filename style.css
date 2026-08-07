@@ -90,19 +90,19 @@ a { text-decoration: none; color: inherit; transition: 0.2s; }
 
 /* Interactive Cards with Hover Lift & Red Glow */
 .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 40px; }
-.work-card { 
+.work-card, .work-card-link { 
   background: var(--panel); border: 1px solid var(--panel-border); border-radius: 16px; padding: 35px 30px; 
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); display: block; min-height: 190px; 
-  display: flex; flex-direction: column; justify-content: flex-end; 
+  display: flex; flex-direction: column; justify-content: flex-end; text-decoration: none;
 }
-.work-card:hover { 
+.work-card:hover, .work-card-link:hover { 
   transform: translateY(-8px); 
   border-color: var(--accent); 
   box-shadow: 0 12px 35px rgba(239, 68, 68, 0.25); 
 }
-.work-meta h4 { font-size: 19px; margin-bottom: 6px; color: #fff; font-weight: 700; transition: 0.2s; }
-.work-card:hover .work-meta h4 { color: var(--accent); }
-.work-meta span { font-size: 13px; color: var(--text-muted); }
+.work-meta h4, .work-card-link h4 { font-size: 19px; margin-bottom: 6px; color: #fff; font-weight: 700; transition: 0.2s; }
+.work-card:hover .work-meta h4, .work-card-link:hover h4 { color: var(--accent); }
+.work-meta span, .work-card-link span { font-size: 13px; color: var(--text-muted); }
 
 /* Footer */
 .footer { background: #050507; border-top: 1px solid var(--panel-border); padding: 70px 0 30px; margin-top: 100px; }
@@ -118,6 +118,7 @@ a { text-decoration: none; color: inherit; transition: 0.2s; }
   .display-1 { font-size: 38px; }
   .nav-links { display: none; }
 }
+
 /* New Features Styles */
 .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
 .feature-card { background: var(--panel); padding: 40px; border-radius: 16px; border: 1px solid var(--panel-border); text-align: center; }
