@@ -22,7 +22,6 @@
   .work-card-link:hover h4 { color: var(--accent); }
   .work-card-link span { font-size: 13px; color: var(--text-muted); }
   
-  /* Continuous Live Animations */
   @keyframes floatAnim {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-6px); }
@@ -46,7 +45,12 @@
 </head>
 <body>
 
-<div class="preloader"><div class="preloader-logo">ROBBITO</div></div>
+<!-- Cinematic Sequence Preloader (Sirf Home Page par) -->
+<div class="preloader">
+  <div class="preloader-step-1">Created by Umair</div>
+  <div class="preloader-step-2">ROBBITO</div>
+</div>
+
 <div class="cursor-glow" aria-hidden="true"></div>
 
 <header class="nav">
@@ -224,6 +228,17 @@
     glow.style.left = e.clientX + 'px';
     glow.style.top = e.clientY + 'px';
   });
+
+  // Home Page Session Logic: Sirf pehli baar visit par chalega
+  const preloader = document.querySelector('.preloader');
+  if (sessionStorage.getItem('robbito_visited') === 'true') {
+    preloader.style.display = 'none';
+  } else {
+    sessionStorage.setItem('robbito_visited', 'true');
+    setTimeout(() => {
+      preloader.classList.add('hidden');
+    }, 3800); // Sequence timing ke mutabiq
+  }
 </script>
 </body>
 </html>
