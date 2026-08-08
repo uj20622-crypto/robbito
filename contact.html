@@ -6,6 +6,10 @@
 <title>Contact Robbito — Get in Touch</title>
 <link rel="icon" type="image/png" href="Robbito logo .png">
 <link rel="stylesheet" href="style.css">
+
+<!-- AOS (Animate On Scroll) CSS Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <style>
   .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
   .contact-info-card { background: var(--panel); padding: 40px; border-radius: 16px; border: 1px solid var(--panel-border); }
@@ -13,6 +17,19 @@
   .form-group { margin-bottom: 20px; }
   .form-control { width: 100%; padding: 12px 16px; background: #070709; border: 1px solid var(--panel-border); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: 0.2s; }
   .form-control:focus { border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
+
+  /* Fixed Soft Wide Cursor Glow with Red/Yellow switch */
+  .cursor-glow {
+    position: fixed !important;
+    pointer-events: none !important;
+    z-index: 99999 !important;
+    width: 400px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
+    transition: background 0.4s ease;
+  }
 
   @keyframes floatAnim {
     0% { transform: translateY(0px); }
@@ -39,7 +56,6 @@
 </head>
 <body>
 
-<div class="preloader"><div class="preloader-logo">ROBBITO</div></div>
 <div class="cursor-glow" aria-hidden="true"></div>
 
 <header class="nav">
@@ -61,15 +77,15 @@
 
 <section class="hero section">
   <div class="container">
-    <div class="eyebrow">Contact Us</div>
-    <h1 class="display-1">Let's discuss your<br><span class="grad-text">supply requirements.</span></h1>
+    <div class="eyebrow" data-aos="fade-up">Contact Us</div>
+    <h1 class="display-1" data-aos="fade-up" data-aos-delay="100">Let's discuss your<br><span class="grad-text">supply requirements.</span></h1>
   </div>
 </section>
 
 <section class="section-tight">
   <div class="container contact-wrapper">
     
-    <div style="display: flex; flex-direction: column; gap: 30px;">
+    <div style="display: flex; flex-direction: column; gap: 30px;" data-aos="fade-up" data-aos-delay="0">
       <div class="contact-info-card floating-card">
         <h2 style="font-size: 24px; margin-bottom: 20px; color: #fff;">Direct Contact</h2>
         <p style="margin-bottom: 12px; color: var(--text-muted);"><strong>Phone:</strong> <a href="tel:03167272598" style="color: var(--accent);">03167272598</a></p>
@@ -83,7 +99,7 @@
       </div>
     </div>
 
-    <div class="contact-form-card">
+    <div class="contact-form-card" data-aos="fade-up" data-aos-delay="150">
       <h2 style="font-size: 24px; margin-bottom: 20px; color: #fff;">Send a Message</h2>
       <form action="https://formspree.io/f/bjtextlie@gmail.com" method="POST">
         <div class="form-group"><input type="text" name="name" placeholder="Your Name / Institution" class="form-control" required></div>
@@ -148,11 +164,32 @@
   </svg>
 </a>
 
+<!-- AOS JS Library Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <script>
+  // Initialize AOS Scroll Animations
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+  });
+
+  // Cursor Glow Logic (Red on move, Yellow when idle)
   const glow = document.querySelector('.cursor-glow');
+  let idleTimer = null;
+
   window.addEventListener('mousemove', e => {
     glow.style.left = e.clientX + 'px';
     glow.style.top = e.clientY + 'px';
+    
+    glow.style.background = 'radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, rgba(0,0,0,0) 70%)';
+
+    clearTimeout(idleTimer);
+
+    idleTimer = setTimeout(() => {
+      glow.style.background = 'radial-gradient(circle, rgba(234, 179, 8, 0.18) 0%, rgba(0,0,0,0) 70%)';
+    }, 400);
   });
 </script>
 </body>
