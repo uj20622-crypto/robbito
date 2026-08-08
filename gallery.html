@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="Robbito logo .png">
 <link rel="stylesheet" href="style.css">
 
-<!-- AOS (Animate On Scroll) CSS Library -->
+<!-- AOS CSS Library -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <style>
@@ -28,7 +28,7 @@
   .gallery-img-card:hover .gallery-content h4 { color: var(--accent); }
   .gallery-content span { font-size: 13px; color: var(--text-muted); }
 
-  /* Fixed Soft Wide Cursor Glow with Red/Yellow switch */
+  /* Fixed Soft Wide Cursor Glow */
   .cursor-glow {
     position: fixed !important;
     pointer-events: none !important;
@@ -37,7 +37,7 @@
     height: 400px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, rgba(0,0,0,0) 70%);
     transition: background 0.4s ease;
   }
 
@@ -63,6 +63,11 @@
 </style>
 </head>
 <body>
+
+<!-- Robbito Preloader -->
+<div class="preloader">
+  <div class="preloader-logo">ROBBITO</div>
+</div>
 
 <div class="cursor-glow" aria-hidden="true"></div>
 
@@ -167,29 +172,19 @@
   </svg>
 </a>
 
-<!-- AOS JS Library Script -->
+<!-- AOS JS Library -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
-  // Initialize AOS Scroll Animations
-  AOS.init({
-    duration: 1000,
-    once: true,
-    offset: 100
-  });
+  AOS.init({ duration: 1000, once: true, offset: 100 });
 
-  // Cursor Glow Logic (Red on move, Yellow when idle)
   const glow = document.querySelector('.cursor-glow');
   let idleTimer = null;
-
   window.addEventListener('mousemove', e => {
     glow.style.left = e.clientX + 'px';
     glow.style.top = e.clientY + 'px';
-    
     glow.style.background = 'radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, rgba(0,0,0,0) 70%)';
-
     clearTimeout(idleTimer);
-
     idleTimer = setTimeout(() => {
       glow.style.background = 'radial-gradient(circle, rgba(234, 179, 8, 0.18) 0%, rgba(0,0,0,0) 70%)';
     }, 400);
