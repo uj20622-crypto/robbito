@@ -6,6 +6,10 @@
 <title>Gallery — Robbito Footwear &amp; Uniform Solutions</title>
 <link rel="icon" type="image/png" href="Robbito logo .png">
 <link rel="stylesheet" href="style.css">
+
+<!-- AOS (Animate On Scroll) CSS Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <style>
   .gallery-img-card {
     position: relative; overflow: hidden; min-height: 320px;
@@ -23,6 +27,19 @@
   .gallery-content h4 { font-size: 20px; color: #fff; margin-bottom: 6px; font-weight: 700; transition: 0.2s; }
   .gallery-img-card:hover .gallery-content h4 { color: var(--accent); }
   .gallery-content span { font-size: 13px; color: var(--text-muted); }
+
+  /* Fixed Soft Wide Cursor Glow with Red/Yellow switch */
+  .cursor-glow {
+    position: fixed !important;
+    pointer-events: none !important;
+    z-index: 99999 !important;
+    width: 400px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
+    transition: background 0.4s ease;
+  }
 
   @keyframes floatAnim {
     0% { transform: translateY(0px); }
@@ -47,7 +64,6 @@
 </head>
 <body>
 
-<div class="preloader"><div class="preloader-logo">ROBBITO</div></div>
 <div class="cursor-glow" aria-hidden="true"></div>
 
 <header class="nav">
@@ -69,8 +85,8 @@
 
 <section class="hero section">
   <div class="container">
-    <div class="eyebrow">Showcase</div>
-    <h1 class="display-1">Visual showcase of<br><span class="grad-text">our craftsmanship.</span></h1>
+    <div class="eyebrow" data-aos="fade-up">Showcase</div>
+    <h1 class="display-1" data-aos="fade-up" data-aos-delay="100">Visual showcase of<br><span class="grad-text">our craftsmanship.</span></h1>
   </div>
 </section>
 
@@ -78,19 +94,19 @@
   <div class="container">
     <div class="work-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
       
-      <div class="gallery-img-card floating-card" style="background-image: url('gallery-1.jpg'); animation-delay: 0s;">
+      <div class="gallery-img-card floating-card" data-aos="fade-up" data-aos-delay="0" style="background-image: url('gallery-1.jpg'); animation-delay: 0s;">
         <div class="gallery-content">
           <h4>Collection View</h4><span>School Footwear Line</span>
         </div>
       </div>
 
-      <div class="gallery-img-card floating-card" style="background-image: url('gallery-2.jpg'); animation-delay: 0.8s;">
+      <div class="gallery-img-card floating-card" data-aos="fade-up" data-aos-delay="150" style="background-image: url('gallery-2.jpg'); animation-delay: 0.8s;">
         <div class="gallery-content">
           <h4>Safety Series</h4><span>Industrial Safety Boots</span>
         </div>
       </div>
 
-      <div class="gallery-img-card floating-card" style="background-image: url('gallery-3.jpg'); animation-delay: 1.6s;">
+      <div class="gallery-img-card floating-card" data-aos="fade-up" data-aos-delay="300" style="background-image: url('gallery-3.jpg'); animation-delay: 1.6s;">
         <div class="gallery-content">
           <h4>Institutional Uniforms</h4><span>Custom Tailored Sets</span>
         </div>
@@ -151,11 +167,32 @@
   </svg>
 </a>
 
+<!-- AOS JS Library Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <script>
+  // Initialize AOS Scroll Animations
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+  });
+
+  // Cursor Glow Logic (Red on move, Yellow when idle)
   const glow = document.querySelector('.cursor-glow');
+  let idleTimer = null;
+
   window.addEventListener('mousemove', e => {
     glow.style.left = e.clientX + 'px';
     glow.style.top = e.clientY + 'px';
+    
+    glow.style.background = 'radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, rgba(0,0,0,0) 70%)';
+
+    clearTimeout(idleTimer);
+
+    idleTimer = setTimeout(() => {
+      glow.style.background = 'radial-gradient(circle, rgba(234, 179, 8, 0.18) 0%, rgba(0,0,0,0) 70%)';
+    }, 400);
   });
 </script>
 </body>
