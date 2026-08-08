@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,6 +6,10 @@
 <title>Products — Robbito Footwear &amp; Uniform Solutions</title>
 <link rel="icon" type="image/png" href="Robbito logo .png">
 <link rel="stylesheet" href="style.css">
+
+<!-- AOS (Animate On Scroll) CSS Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <style>
   .product-img-card {
     position: relative; overflow: hidden; min-height: 320px;
@@ -29,6 +33,19 @@
     font-size: 12px; font-weight: 600; border-radius: 6px; box-shadow: 0 4px 15px var(--accent-glow); transition: 0.2s;
   }
   .product-img-card:hover .card-action-btn { background: #fff; color: var(--bg); }
+
+  /* Fixed Soft Wide Cursor Glow with Red/Yellow switch */
+  .cursor-glow {
+    position: fixed !important;
+    pointer-events: none !important;
+    z-index: 99999 !important;
+    width: 400px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
+    transition: background 0.4s ease;
+  }
 
   @keyframes floatAnim {
     0% { transform: translateY(0px); }
@@ -54,7 +71,6 @@
 </head>
 <body>
 
-<div class="preloader"><div class="preloader-logo">ROBBITO</div></div>
 <div class="cursor-glow" aria-hidden="true"></div>
 
 <header class="nav">
@@ -76,8 +92,8 @@
 
 <section class="hero section">
   <div class="container">
-    <div class="eyebrow">Catalog</div>
-    <h1 class="display-1">Quality footwear &amp;<br><span class="grad-text">uniform collections.</span></h1>
+    <div class="eyebrow" data-aos="fade-up">Catalog</div>
+    <h1 class="display-1" data-aos="fade-up" data-aos-delay="100">Quality footwear &amp;<br><span class="grad-text">uniform collections.</span></h1>
   </div>
 </section>
 
@@ -85,42 +101,42 @@
   <div class="container">
     <div class="work-grid">
       
-      <div id="school-shoes" class="product-img-card floating-card" style="background-image: url('school-shoes.jpg'); animation-delay: 0s;">
+      <div id="school-shoes" class="product-img-card floating-card" data-aos="fade-up" data-aos-delay="0" style="background-image: url('school-shoes.jpg'); animation-delay: 0s;">
         <div class="product-content">
           <h4>School Shoes</h4><span>Durable &amp; Comfortable Daily Wear</span>
           <a href="contact.html" class="card-action-btn">Inquire Now</a>
         </div>
       </div>
 
-      <div id="college-shoes" class="product-img-card floating-card" style="background-image: url('college-shoes.jpg'); animation-delay: 0.5s;">
+      <div id="college-shoes" class="product-img-card floating-card" data-aos="fade-up" data-aos-delay="150" style="background-image: url('college-shoes.jpg'); animation-delay: 0.5s;">
         <div class="product-content">
           <h4>College Shoes</h4><span>Formal Leather Standards</span>
           <a href="contact.html" class="card-action-btn">Inquire Now</a>
         </div>
       </div>
 
-      <div id="safety-shoes" class="product-img-card floating-card" style="background-image: url('safety-shoes.jpg'); animation-delay: 1s;">
+      <div id="safety-shoes" class="product-img-card floating-card" data-aos="fade-up" data-aos-delay="300" style="background-image: url('safety-shoes.jpg'); animation-delay: 1s;">
         <div class="product-content">
           <h4>Safety Shoes</h4><span>Industrial Steel Toe Protection</span>
           <a href="contact.html" class="card-action-btn">Inquire Now</a>
         </div>
       </div>
 
-      <div id="school-uniforms" class="product-img-card floating-card" style="background-image: url('school-uniforms.jpg'); animation-delay: 1.5s;">
+      <div id="school-uniforms" class="product-img-card floating-card" data-aos="fade-up" data-aos-delay="0" style="background-image: url('school-uniforms.jpg'); animation-delay: 1.5s;">
         <div class="product-content">
           <h4>School Uniforms</h4><span>Neat Fabrics &amp; Custom Tailoring</span>
           <a href="contact.html" class="card-action-btn">Inquire Now</a>
         </div>
       </div>
 
-      <div id="college-uniforms" class="product-img-card floating-card" style="background-image: url('college-uniforms.jpg'); animation-delay: 2s;">
+      <div id="college-uniforms" class="product-img-card floating-card" data-aos="fade-up" data-aos-delay="150" style="background-image: url('college-uniforms.jpg'); animation-delay: 2s;">
         <div class="product-content">
           <h4>College Uniforms</h4><span>Professional Institutional Attire</span>
           <a href="contact.html" class="card-action-btn">Inquire Now</a>
         </div>
       </div>
 
-      <div id="factory-uniforms" class="product-img-card floating-card" style="background-image: url('factory-uniforms.jpg'); animation-delay: 2.5s;">
+      <div id="factory-uniforms" class="product-img-card floating-card" data-aos="fade-up" data-aos-delay="300" style="background-image: url('factory-uniforms.jpg'); animation-delay: 2.5s;">
         <div class="product-content">
           <h4>Factory Uniforms</h4><span>Heavy-Duty Industrial Workwear</span>
           <a href="contact.html" class="card-action-btn">Inquire Now</a>
@@ -182,12 +198,23 @@
   </svg>
 </a>
 
+<!-- AOS JS Library Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <script>
+  // Initialize AOS Scroll Animations
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+  });
+
+  // Cursor Glow Logic (Red on move, Yellow when idle)
   const glow = document.querySelector('.cursor-glow');
+  let idleTimer = null;
+
   window.addEventListener('mousemove', e => {
     glow.style.left = e.clientX + 'px';
     glow.style.top = e.clientY + 'px';
-  });
-</script>
-</body>
-</html>
+    
+    glow.style.background = 'radial
