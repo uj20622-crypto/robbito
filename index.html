@@ -45,12 +45,17 @@
   }
   .preloader.hidden { display: none !important; }
 
-  /* Fixed Cursor Glow with Smooth Color Transition */
+  /* Fixed Soft Wide Cursor Glow (Box Khatam, Round Soft Glow) */
   .cursor-glow {
     position: fixed !important;
     pointer-events: none !important;
     z-index: 99999 !important;
-    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    width: 400px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
+    transition: background 0.4s ease;
   }
 
   /* Product Cards Styling */
@@ -302,17 +307,15 @@
     glow.style.left = e.clientX + 'px';
     glow.style.top = e.clientY + 'px';
     
-    // Jab mouse move ho toh Red (Accent color) ho jaye
-    glow.style.background = 'radial-gradient(circle, rgba(239, 68, 68, 0.25) 0%, rgba(0,0,0,0) 70%)';
-    glow.style.boxShadow = '0 0 25px rgba(239, 68, 68, 0.4)';
+    // Jab mouse move ho toh Red glow ho
+    glow.style.background = 'radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, rgba(0,0,0,0) 70%)';
 
     // Purana timer clear karein
     clearTimeout(idleTimer);
 
-    // Agar mouse 400ms tak na hile toh Yellow ho jaye
+    // Agar mouse 400ms tak na hile toh Yellow glow ho jaye
     idleTimer = setTimeout(() => {
-      glow.style.background = 'radial-gradient(circle, rgba(234, 179, 8, 0.25) 0%, rgba(0,0,0,0) 70%)';
-      glow.style.boxShadow = '0 0 25px rgba(234, 179, 8, 0.4)';
+      glow.style.background = 'radial-gradient(circle, rgba(234, 179, 8, 0.18) 0%, rgba(0,0,0,0) 70%)';
     }, 400);
   });
 
