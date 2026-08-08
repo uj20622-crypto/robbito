@@ -6,22 +6,69 @@
 <title>Robbito — Premium Footwear &amp; Uniform Solutions</title>
 <link rel="icon" type="image/png" href="Robbito logo .png">
 <link rel="stylesheet" href="style.css">
+
+<!-- AOS (Animate On Scroll) CSS Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <style>
+  /* Preloader CSS (Locked Full Screen) */
+  .preloader {
+    position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+    width: 100% !important; height: 100vh !important; background: #070709 !important;
+    z-index: 999999 !important; display: flex !important; flex-direction: column !important;
+    align-items: center !important; justify-content: center !important;
+    overflow: hidden !important; animation: hideContainer 0.5s ease 3.8s forwards;
+  }
+  .preloader-step-1 {
+    position: absolute; font-size: 16px; font-weight: 600; color: var(--text-muted);
+    letter-spacing: 3px; text-transform: uppercase; animation: showStep1 1.8s ease-in-out forwards;
+  }
+  .preloader-step-2 {
+    position: absolute; font-size: 38px; font-weight: 900; color: #fff;
+    letter-spacing: 5px; text-shadow: 0 0 25px var(--accent); opacity: 0;
+    animation: showStep2 1.8s ease-in-out 1.8s forwards;
+  }
+  @keyframes showStep1 {
+    0% { opacity: 0; transform: translateY(15px); }
+    30% { opacity: 1; transform: translateY(0px); }
+    70% { opacity: 1; transform: translateY(0px); }
+    100% { opacity: 0; transform: translateY(-15px); visibility: hidden; }
+  }
+  @keyframes showStep2 {
+    0% { opacity: 0; transform: translateY(15px) scale(0.95); }
+    30% { opacity: 1; transform: translateY(0px) scale(1); }
+    70% { opacity: 1; transform: translateY(0px) scale(1); }
+    100% { opacity: 0; transform: translateY(-15px) scale(1.02); visibility: hidden; }
+  }
+  @keyframes hideContainer {
+    to { opacity: 0; visibility: hidden; pointer-events: none; }
+  }
+  .preloader.hidden { display: none !important; }
+
+  /* Fixed Cursor Glow with Smooth Color Transition */
+  .cursor-glow {
+    position: fixed !important;
+    pointer-events: none !important;
+    z-index: 99999 !important;
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* Product Cards Styling */
   .work-card-link {
     background: var(--panel); border: 1px solid var(--panel-border); border-radius: 16px; 
-    overflow: hidden; position: relative; min-height: 240px; 
-    display: flex; flex-direction: column; justify-content: flex-end; text-decoration: none;
+    overflow: hidden; position: relative; min-height: 240px; display: flex;
+    flex-direction: column; justify-content: flex-end; text-decoration: none;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .work-card-link:hover { 
-    transform: translateY(-8px); 
-    border-color: var(--accent); 
+    transform: translateY(-8px); border-color: var(--accent); 
     box-shadow: 0 12px 35px rgba(239, 68, 68, 0.25); 
   }
   .work-card-link h4 { font-size: 19px; margin-bottom: 4px; color: #fff; font-weight: 700; transition: 0.2s; }
   .work-card-link:hover h4 { color: var(--accent); }
   .work-card-link span { font-size: 13px; color: var(--text-muted); }
   
+  /* Continuous Floating Animation */
   @keyframes floatAnim {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-6px); }
@@ -29,6 +76,7 @@
   }
   .floating-card { animation: floatAnim 4s ease-in-out infinite; }
 
+  /* Continuous Pulse Glow for WhatsApp */
   @keyframes softPulse {
     0% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.3); }
     50% { box-shadow: 0 0 30px rgba(239, 68, 68, 0.6); }
@@ -44,12 +92,8 @@
 </style>
 </head>
 <body>
-<div class="preloader">
-  <div class="preloader-step-1">Created by Umair</div>
-  <div class="preloader-step-2">ROBBITO</div>
-</div>
-<div class="cursor-glow" aria-hidden="true"></div>
-<!-- Cinematic Sequence Preloader (Sirf Home Page par) -->
+
+<!-- Cinematic Preloader -->
 <div class="preloader">
   <div class="preloader-step-1">Created by Umair</div>
   <div class="preloader-step-2">ROBBITO</div>
@@ -57,6 +101,7 @@
 
 <div class="cursor-glow" aria-hidden="true"></div>
 
+<!-- Navbar -->
 <header class="nav">
   <div class="container nav-inner">
     <a href="index.html" class="brand">
@@ -74,6 +119,7 @@
   </div>
 </header>
 
+<!-- Hero Section -->
 <section class="hero section">
   <div class="container hero-grid">
     <div class="hero-copy">
@@ -88,63 +134,71 @@
   </div>
 </section>
 
+<!-- Our Catalog Section -->
 <section class="section">
   <div class="container">
-    <div class="eyebrow">Our Catalog</div>
-    <h2 style="font-size: 34px; font-weight: 800; margin-bottom: 30px;">Engineered for comfort.<br>Built for daily use.</h2>
+    <div class="eyebrow" data-aos="fade-up">Our Catalog</div>
+    <h2 data-aos="fade-up" data-aos-delay="100" style="font-size: 34px; font-weight: 800; margin-bottom: 30px;">Engineered for comfort.<br>Built for daily use.</h2>
+    
     <div class="work-grid">
       
-      <a href="products.html#school-shoes" class="work-card-link floating-card" style="animation-delay: 0s;">
+      <a href="products.html#school-shoes" class="work-card-link floating-card" data-aos="fade-up" data-aos-delay="0">
         <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
           <source src="1. School Shoes.mp4" type="video/mp4">
         </video>
         <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,7,9,0.95) 20%, rgba(7,7,9,0.3) 100%); z-index: 2;"></div>
         <div class="work-meta" style="position: relative; z-index: 3; padding: 35px 30px;">
-          <h4>School Shoes</h4><span>Durable &amp; Comfortable</span>
+          <h4>School Shoes</h4>
+          <span>Durable &amp; Comfortable</span>
         </div>
       </a>
 
-      <a href="products.html#college-shoes" class="work-card-link floating-card" style="animation-delay: 0.5s;">
+      <a href="products.html#college-shoes" class="work-card-link floating-card" data-aos="fade-up" data-aos-delay="150">
         <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
           <source src="2. College Shoes.mp4" type="video/mp4">
         </video>
         <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,7,9,0.95) 20%, rgba(7,7,9,0.3) 100%); z-index: 2;"></div>
         <div class="work-meta" style="position: relative; z-index: 3; padding: 35px 30px;">
-          <h4>College Shoes</h4><span>Formal &amp; Elegant</span>
+          <h4>College Shoes</h4>
+          <span>Formal &amp; Elegant</span>
         </div>
       </a>
 
-      <a href="products.html#safety-shoes" class="work-card-link floating-card" style="animation-delay: 1s;">
+      <a href="products.html#safety-shoes" class="work-card-link floating-card" data-aos="fade-up" data-aos-delay="300">
         <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
           <source src="3. Factory Safety Shoes.mp4" type="video/mp4">
         </video>
         <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,7,9,0.95) 20%, rgba(7,7,9,0.3) 100%); z-index: 2;"></div>
         <div class="work-meta" style="position: relative; z-index: 3; padding: 35px 30px;">
-          <h4>Factory Safety Shoes</h4><span>Heavy-Duty Protection</span>
+          <h4>Factory Safety Shoes</h4>
+          <span>Heavy-Duty Protection</span>
         </div>
       </a>
 
-      <a href="products.html#school-uniforms" class="work-card-link floating-card" style="animation-delay: 1.5s;">
+      <a href="products.html#school-uniforms" class="work-card-link floating-card" data-aos="fade-up" data-aos-delay="0">
         <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
           <source src="4. School Uniforms.mp4" type="video/mp4">
         </video>
         <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,7,9,0.95) 20%, rgba(7,7,9,0.3) 100%); z-index: 2;"></div>
         <div class="work-meta" style="position: relative; z-index: 3; padding: 35px 30px;">
-          <h4>School Uniforms</h4><span>Neat &amp; Breathable Fabrics</span>
+          <h4>School Uniforms</h4>
+          <span>Neat &amp; Breathable Fabrics</span>
         </div>
       </a>
 
-      <a href="products.html#college-uniforms" class="work-card-link floating-card" style="animation-delay: 2s; background-image: url('College Uniforms.jpg'); background-size: cover; background-position: center;">
+      <a href="products.html#college-uniforms" class="work-card-link floating-card" data-aos="fade-up" data-aos-delay="150" style="background-image: url('College Uniforms.jpg'); background-size: cover; background-position: center;">
         <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,7,9,0.95) 20%, rgba(7,7,9,0.3) 100%); z-index: 1;"></div>
         <div class="work-meta" style="position: relative; z-index: 2; padding: 35px 30px;">
-          <h4>College Uniforms</h4><span>Institution Standards</span>
+          <h4>College Uniforms</h4>
+          <span>Institution Standards</span>
         </div>
       </a>
 
-      <a href="products.html#factory-uniforms" class="work-card-link floating-card" style="animation-delay: 2.5s; background-image: url('6. Factory Uniforms.png'); background-size: cover; background-position: center;">
+      <a href="products.html#factory-uniforms" class="work-card-link floating-card" data-aos="fade-up" data-aos-delay="300" style="background-image: url('6. Factory Uniforms.png'); background-size: cover; background-position: center;">
         <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,7,9,0.95) 20%, rgba(7,7,9,0.3) 100%); z-index: 1;"></div>
         <div class="work-meta" style="position: relative; z-index: 2; padding: 35px 30px;">
-          <h4>Factory Uniforms</h4><span>Industrial Workwear</span>
+          <h4>Factory Uniforms</h4>
+          <span>Industrial Workwear</span>
         </div>
       </a>
 
@@ -152,20 +206,21 @@
   </div>
 </section>
 
+<!-- Client Testimonials Section -->
 <section class="section" style="padding-top: 0;">
   <div class="container">
-    <div class="eyebrow">Client Feedback</div>
-    <h2 style="font-size: 34px; font-weight: 800; margin-bottom: 20px;">Trusted by institutions.<br>Praised for quality.</h2>
+    <div class="eyebrow" data-aos="fade-up">Client Feedback</div>
+    <h2 data-aos="fade-up" data-aos-delay="100" style="font-size: 34px; font-weight: 800; margin-bottom: 20px;">Trusted by institutions.<br>Praised for quality.</h2>
     <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 40px;">
-      <div class="testimonial-card" style="background: var(--panel); padding: 35px; border-radius: 16px; border: 1px solid var(--panel-border);">
-        <p style="color: var(--text); font-style: italic; margin-bottom: 20px; line-height: 1.7;">"Robbito supplied our school with custom uniforms and shoes for over 500 students. The quality and durability exceeded our expectations!"</p>
+      <div class="testimonial-card" data-aos="fade-up" style="background: var(--panel); padding: 35px; border-radius: 16px; border: 1px solid var(--panel-border);">
+        <p style="color: var(--text); font-style: italic; margin-bottom: 20px; line-height: 1.7;">"Robbito supplied our school with custom uniforms and shoes for over 500 students. The quality and durability exceeded our expectations, and delivery was right on time!"</p>
         <div class="testimonial-author">
           <h5 style="color: #fff; font-size: 16px; font-weight: 700;">Principal</h5>
           <span style="color: var(--text-muted); font-size: 13px;">Private School Network, Punjab</span>
         </div>
       </div>
-      <div class="testimonial-card" style="background: var(--panel); padding: 35px; border-radius: 16px; border: 1px solid var(--panel-border);">
-        <p style="color: var(--text); font-style: italic; margin-bottom: 20px; line-height: 1.7;">"We ordered heavy-duty industrial safety boots and factory workwear for our staff. Exceptional stitching and rugged material."</p>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="150" style="background: var(--panel); padding: 35px; border-radius: 16px; border: 1px solid var(--panel-border);">
+        <p style="color: var(--text); font-style: italic; margin-bottom: 20px; line-height: 1.7;">"We ordered heavy-duty industrial safety boots and factory workwear for our staff. Exceptional stitching and rugged material built for daily factory use."</p>
         <div class="testimonial-author">
           <h5 style="color: #fff; font-size: 16px; font-weight: 700;">Operations Manager</h5>
           <span style="color: var(--text-muted); font-size: 13px;">Manufacturing Unit, Okara</span>
@@ -175,6 +230,7 @@
   </div>
 </section>
 
+<!-- Footer -->
 <footer class="footer">
   <div class="container">
     <div class="footer-top">
@@ -220,20 +276,47 @@
   </div>
 </footer>
 
+<!-- WhatsApp Floating Button -->
 <a href="https://wa.me/923167272598?text=Hello%20Robbito,%20I%20want%20to%20discuss%20my%20order%20requirements." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
     <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.558 6.558 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.012-.304.088-.403.087-.088.197-.232.296-.348.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34l-.38-.008c-.133 0-.348.048-.53.247-.182.198-.694.678-.694 1.654 0 .976.712 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.078.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.379-.232z"/>
   </svg>
 </a>
 
+<!-- AOS JS Library Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <script>
+  // Initialize AOS Scroll Animations
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+  });
+
+  // Cursor Glow Logic with Scroll Fix & Mouse Idle Color Switch (Red <-> Yellow)
   const glow = document.querySelector('.cursor-glow');
+  let idleTimer = null;
+
   window.addEventListener('mousemove', e => {
     glow.style.left = e.clientX + 'px';
     glow.style.top = e.clientY + 'px';
+    
+    // Jab mouse move ho toh Red (Accent color) ho jaye
+    glow.style.background = 'radial-gradient(circle, rgba(239, 68, 68, 0.25) 0%, rgba(0,0,0,0) 70%)';
+    glow.style.boxShadow = '0 0 25px rgba(239, 68, 68, 0.4)';
+
+    // Purana timer clear karein
+    clearTimeout(idleTimer);
+
+    // Agar mouse 400ms tak na hile toh Yellow ho jaye
+    idleTimer = setTimeout(() => {
+      glow.style.background = 'radial-gradient(circle, rgba(234, 179, 8, 0.25) 0%, rgba(0,0,0,0) 70%)';
+      glow.style.boxShadow = '0 0 25px rgba(234, 179, 8, 0.4)';
+    }, 400);
   });
 
-  // Home Page Session Logic: Sirf pehli baar visit par chalega
+  // Preloader Session Logic
   const preloader = document.querySelector('.preloader');
   if (sessionStorage.getItem('robbito_visited') === 'true') {
     preloader.style.display = 'none';
@@ -241,7 +324,7 @@
     sessionStorage.setItem('robbito_visited', 'true');
     setTimeout(() => {
       preloader.classList.add('hidden');
-    }, 3800); // Sequence timing ke mutabiq
+    }, 3800);
   }
 </script>
 </body>
