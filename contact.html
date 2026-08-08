@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="Robbito logo .png">
 <link rel="stylesheet" href="style.css">
 
-<!-- AOS (Animate On Scroll) CSS Library -->
+<!-- AOS CSS -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <style>
@@ -18,7 +18,7 @@
   .form-control { width: 100%; padding: 12px 16px; background: #070709; border: 1px solid var(--panel-border); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: 0.2s; }
   .form-control:focus { border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
 
-  /* Fixed Soft Wide Cursor Glow with Red/Yellow switch */
+  /* Fixed Soft Wide Cursor Glow */
   .cursor-glow {
     position: fixed !important;
     pointer-events: none !important;
@@ -27,7 +27,7 @@
     height: 400px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, rgba(0,0,0,0) 70%);
     transition: background 0.4s ease;
   }
 
@@ -105,7 +105,7 @@
         <div class="form-group"><input type="text" name="name" placeholder="Your Name / Institution" class="form-control" required></div>
         <div class="form-group"><input type="email" name="email" placeholder="Your Email Address" class="form-control" required></div>
         <div class="form-group"><input type="tel" name="phone" placeholder="Phone Number" class="form-control" required></div>
-        <div class="form-group"><textarea name="message" placeholder="Write your requirements (e.g. School Uniforms quantity, Safety Shoes size)" class="form-control" rows="5" required></textarea></div>
+        <div class="form-group"><textarea name="message" placeholder="Write your requirements..." class="form-control" rows="5" required></textarea></div>
         <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Request</button>
       </form>
     </div>
@@ -164,29 +164,19 @@
   </svg>
 </a>
 
-<!-- AOS JS Library Script -->
+<!-- AOS JS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
-  // Initialize AOS Scroll Animations
-  AOS.init({
-    duration: 1000,
-    once: true,
-    offset: 100
-  });
+  AOS.init({ duration: 1000, once: true, offset: 100 });
 
-  // Cursor Glow Logic (Red on move, Yellow when idle)
   const glow = document.querySelector('.cursor-glow');
   let idleTimer = null;
-
   window.addEventListener('mousemove', e => {
     glow.style.left = e.clientX + 'px';
     glow.style.top = e.clientY + 'px';
-    
     glow.style.background = 'radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, rgba(0,0,0,0) 70%)';
-
     clearTimeout(idleTimer);
-
     idleTimer = setTimeout(() => {
       glow.style.background = 'radial-gradient(circle, rgba(234, 179, 8, 0.18) 0%, rgba(0,0,0,0) 70%)';
     }, 400);
